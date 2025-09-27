@@ -1,0 +1,67 @@
+SEC COMPLIANCE REQUIREMENTS FOR PUBLIC COMPANIES
+
+QUARTERLY REPORTING OBLIGATIONS
+
+Section 1: Quarterly Reports
+All public companies must file quarterly reports on Form 10-Q within 45 days after the end of each fiscal quarter. Companies with a public float of $75 million or more must file within 40 days. Failure to file within the specified timeframe will result in a penalty of $100 per day for the first 30 days, and $200 per day thereafter.
+
+Section 2: Annual Reports
+Public companies are required to submit annual reports on Form 10-K within 60 days after the end of the fiscal year. Large accelerated filers with a public float of $700 million or more must file within 60 days, while accelerated filers must file within 75 days.
+
+DISCLOSURE REQUIREMENTS
+
+Section 3: Material Information Disclosure
+Companies must disclose all material information that could affect investment decisions within 4 business days of becoming aware of such information. This includes but is not limited to:
+- Changes in financial condition
+- Significant business developments
+- Legal proceedings with potential material impact
+- Changes in management or control
+
+Section 4: Insider Trading Prohibitions
+Company insiders are prohibited from trading company securities while in possession of material non-public information. Violations of this prohibition may result in civil penalties up to three times the profit gained or loss avoided, and criminal penalties including imprisonment.
+
+REPORTING DEADLINES
+
+Section 5: Current Reports
+Companies must file current reports on Form 8-K within 4 business days of the occurrence of any event specified in the form. These events include:
+- Entry into material agreements
+- Termination of material agreements
+- Changes in registrant's certifying accountant
+- Changes in control of registrant
+
+Section 6: Proxy Statements
+Companies must file definitive proxy statements at least 20 calendar days before the shareholder meeting date. Preliminary proxy materials must be filed at least 10 calendar days before the definitive proxy statement.
+
+PENALTIES AND ENFORCEMENT
+
+Section 7: Late Filing Penalties
+Companies that fail to file required reports on time shall be subject to the following penalties:
+- First violation: $1,000 per day for up to 30 days
+- Subsequent violations: $2,000 per day for up to 30 days
+- Material misstatements: Civil penalties up to $1 million or three times the profit gained
+
+Section 8: Exceptions
+The following entities are exempt from certain reporting requirements:
+- Emerging growth companies (as defined in Section 2(a)(19) of the Securities Act)
+- Smaller reporting companies with less than $100 million in annual revenues
+- Foreign private issuers meeting specific criteria
+
+Section 9: Record Keeping Requirements
+All public companies must maintain books and records in accordance with generally accepted accounting principles. Records must be retained for a minimum of 7 years and must be available for inspection by SEC staff upon request.
+
+Section 10: Internal Controls
+Companies must establish and maintain adequate internal controls over financial reporting. Management must assess and report on the effectiveness of these controls annually. Any material weaknesses must be disclosed immediately.
+
+COMPLIANCE MONITORING
+
+Section 11: Continuous Disclosure
+Companies must ensure continuous compliance with all applicable SEC regulations. This includes regular monitoring of:
+- Filing deadlines
+- Disclosure requirements
+- Insider trading policies
+- Record keeping procedures
+
+Section 12: Whistleblower Protections
+The SEC prohibits retaliation against individuals who report potential violations of securities laws. Companies must establish procedures for receiving and investigating whistleblower complaints.
+
+END OF DOCUMENT
