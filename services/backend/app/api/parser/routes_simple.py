@@ -5,7 +5,7 @@ Implements the new JSON structure for compliance requirements
 
 from fastapi import APIRouter, UploadFile, File, HTTPException, Depends, Query
 from fastapi.responses import JSONResponse
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
 import time
 import os
 import uuid
@@ -28,6 +28,18 @@ from .routes_test_analysis import router as test_analysis_router
 from .routes_complete_analysis import router as complete_analysis_router
 from .routes_requirement_clusters import router as requirement_clusters_router
 from .routes_gap_status import router as gap_status_router
+
+async def _load_orion_data() -> Optional[Dict[str, Any]]:
+    """Load Orion 10-K data from the JSON file."""
+    try:
+        import os
+        orion_file_path = os.path.join(os.path.dirname(__file__), "../../../organization_data/orion_10k_full_v2.json")
+        
+        with open(orion_file_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"❌ Error loading Orion data: {e}")
+        return None
 from .routes_gap_analyses import router as gap_analyses_router
 
 router = APIRouter()
@@ -1554,6 +1566,25 @@ async def process_document_complete(file: UploadFile = File(...)):
                 "confidenceScore": confidence
             })
         
+        # Step 6: Trigger Gap Analysis
+        print(f"\n🔍 Step 6: Triggering Gap Analysis...")
+        
+        try:
+            # Import and call the complete analysis function directly
+            from .routes_complete_analysis import run_full_gap_analysis
+            
+            # Call the complete analysis function (it handles its own database connection)
+            gap_analysis_result = await run_full_gap_analysis()
+            print(f"✅ Gap analysis completed successfully")
+            print(f"   → Analysis ID: {gap_analysis_result.get('analysis_id', 'N/A')}")
+            print(f"   → Compliance Score: {gap_analysis_result.get('compliance_score', 0.0)}")
+            print(f"   → Findings: {len(gap_analysis_result.get('findings', []))}")
+            print(f"   → Tasks: {len(gap_analysis_result.get('tasks', []))}")
+            
+        except Exception as e:
+            print(f"⚠️ Gap analysis failed (non-critical): {e}")
+            gap_analysis_result = {"error": str(e), "success": False}
+        
         # Mark document as processed
         await prisma.document.update(
             where={"id": document.id},
@@ -1584,6 +1615,7 @@ async def process_document_complete(file: UploadFile = File(...)):
         print(f"   → Clusters created: {len(cluster_list)}")
         print(f"   → Harmonized groups: {len(harmonized_list)}")
         print(f"   → LLM organized groups: {len(organized_groups)}")
+        print(f"   → Gap analysis: {'✅ Completed' if gap_analysis_result.get('success', False) else '⚠️ Failed'}")
         print(f"   → Final confidence: {confidence_score:.2f}")
         
         return {
@@ -1597,7 +1629,8 @@ async def process_document_complete(file: UploadFile = File(...)):
                 "clusters_created": len(cluster_list),
                 "harmonized_groups": len(harmonized_list),
                 "llm_organized_groups": len(organized_groups),
-                "final_confidence": confidence_score
+                "final_confidence": confidence_score,
+                "gap_analysis_completed": gap_analysis_result.get('success', False)
             },
             "organized_requirements": organized_data.get("organized_requirements", []),
             "organization_metadata": organized_data.get("organization_metadata", {}),
@@ -1605,7 +1638,8 @@ async def process_document_complete(file: UploadFile = File(...)):
             "actor_types": actor_types,
             "risk_assessment": risk_assessment,
             "clusters": cluster_list,
-            "harmonized": harmonized_list
+            "harmonized": harmonized_list,
+            "gap_analysis": gap_analysis_result
         }
         
     except HTTPException:
