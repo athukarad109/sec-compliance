@@ -42,6 +42,14 @@ class PenaltyInfo(BaseModel):
     other: Optional[str] = Field(None, description="Other penalties")
 
 
+class LegalEntity(BaseModel):
+    text: str = Field(..., description="Extracted entity text")
+    label: str = Field(..., description="Entity label (ORG, DATE, MONEY, etc.)")
+    confidence: float = Field(..., ge=0.0, le=1.0, description="Entity confidence score")
+    start_pos: int = Field(..., description="Start position in text")
+    end_pos: int = Field(..., description="End position in text")
+
+
 class ComplianceRule(BaseModel):
     rule_id: str = Field(..., description="Unique rule identifier")
     title: str = Field(..., description="Rule title")
@@ -54,6 +62,12 @@ class ComplianceRule(BaseModel):
     confidence_score: float = Field(..., ge=0.0, le=1.0, description="Confidence score (0-1)")
     created_at: datetime = Field(default_factory=datetime.now)
     updated_at: datetime = Field(default_factory=datetime.now)
+
+
+class EnhancedComplianceRule(ComplianceRule):
+    legal_entities: List[LegalEntity] = Field(default_factory=list, description="Legal entities extracted by LegalBERT")
+    bert_confidence: float = Field(0.0, ge=0.0, le=1.0, description="LegalBERT confidence score")
+    extraction_method: str = Field("hybrid", description="Extraction method used")
 
 
 class DocumentUploadResponse(BaseModel):

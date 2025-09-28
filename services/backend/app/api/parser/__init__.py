@@ -1,3 +1,3 @@
-from .routes import router
+from .routes_simple import router
 
 __all__ = ["router"]

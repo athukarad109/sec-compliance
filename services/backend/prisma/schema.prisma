@@ -1,0 +1,321 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-py"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  fullName  String?
+  role      UserRole @default(USER)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  documents Document[]
+  reports   Report[]
+  
+  @@map("users")
+}
+
+model Document {
+  id                String            @id @default(uuid())
+  userId            String
+  filename          String
+  originalFilename  String
+  filePath          String?
+  fileSize          BigInt?
+  documentType      DocumentType
+  content           String?
+  uploadDate        DateTime         @default(now())
+  processed         Boolean          @default(false)
+  processingStatus  ProcessingStatus @default(PENDING)
+  processingStartedAt DateTime?
+  processingCompletedAt DateTime?
+  errorMessage      String?
+  
+  user              User             @relation(fields: [userId], references: [id])
+  complianceRequirements ComplianceRequirement[]
+  processingJobs    ProcessingJob[]
+  
+  @@map("documents")
+}
+
+model ComplianceRequirement {
+  id                String      @id @default(uuid())
+  documentId        String
+  title             String
+  description       String
+  requirementType   RequirementType
+  confidenceScore   Float
+  bertConfidence    Float?
+  extractionMethod  String      @default("hybrid")
+  sourceText        String?
+  createdAt         DateTime    @default(now())
+  
+  document          Document     @relation(fields: [documentId], references: [id])
+  legalEntities     LegalEntity[]
+  deadlines         Deadline[]
+  penalties         Penalty[]
+  
+  @@map("compliance_requirements")
+}
+
+model LegalEntity {
+  id          String    @id @default(uuid())
+  requirementId String
+  text        String
+  label       EntityLabel
+  confidence  Float
+  startPos    Int
+  endPos      Int
+  createdAt   DateTime  @default(now())
+  
+  requirement ComplianceRequirement @relation(fields: [requirementId], references: [id])
+  
+  @@map("legal_entities")
+}
+
+model Deadline {
+  id                String      @id @default(uuid())
+  requirementId     String
+  description       String
+  dueDate           DateTime?
+  frequency         String?     // "monthly", "quarterly", "annually"
+  isRecurring       Boolean     @default(false)
+  
+  requirement       ComplianceRequirement @relation(fields: [requirementId], references: [id])
+  
+  @@map("deadlines")
+}
+
+model Penalty {
+  id                String      @id @default(uuid())
+  requirementId     String
+  description       String
+  amount            Float?
+  currency          String?
+  penaltyType       PenaltyType
+  
+  requirement       ComplianceRequirement @relation(fields: [requirementId], references: [id])
+  
+  @@map("penalties")
+}
+
+model ProcessingJob {
+  id                String            @id @default(uuid())
+  documentId        String
+  jobType           JobType
+  status            JobStatus         @default(PENDING)
+  startedAt         DateTime?
+  completedAt       DateTime?
+  errorMessage      String?
+  processingDevice  String?
+  processingTimeSeconds Int?
+  
+  document          Document          @relation(fields: [documentId], references: [id])
+  
+  @@map("processing_jobs")
+}
+
+model Report {
+  id          String   @id @default(uuid())
+  userId      String
+  title       String
+  content     String
+  reportType  ReportType
+  generatedAt DateTime @default(now())
+  
+  user        User     @relation(fields: [userId], references: [id])
+  
+  @@map("reports")
+}
+
+// Enums
+enum UserRole {
+  ADMIN
+  USER
+  COMPLIANCE_OFFICER
+}
+
+enum DocumentType {
+  PDF
+  DOCX
+  TXT
+}
+
+enum ProcessingStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+enum RequirementType {
+  OBLIGATION        // Must do
+  PROHIBITION       // Cannot do
+  REPORTING         // Must report
+  DISCLOSURE        // Must disclose
+  DEADLINE          // Time-bound requirement
+  THRESHOLD         // Financial/operational limit
+  PROCEDURE         // How to do something
+  STANDARD          // Quality/performance standard
+}
+
+enum EntityLabel {
+  ORG
+  DATE
+  MONEY
+  FORM
+  PENALTY
+}
+
+enum PenaltyType {
+  MONETARY
+  REGULATORY
+  OPERATIONAL
+  REPUTATIONAL
+}
+
+enum JobType {
+  RULE_EXTRACTION
+  ENTITY_EXTRACTION
+  COMPLIANCE_CHECK
+}
+
+enum JobStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+enum ReportType {
+  COMPLIANCE_SUMMARY
+  RULE_ANALYSIS
+  ENTITY_REPORT
+  PERFORMANCE_METRICS
+}
+
+// Organization and Processing Models
+model RequirementCluster {
+  id                String   @id @default(uuid())
+  clusterId         String   @unique
+  policy            String
+  requirements      Json
+  count             Int
+  averageConfidence Float
+  createdAt         DateTime @default(now())
+  
+  @@map("requirement_clusters")
+}
+
+model HarmonizedRequirement {
+  id                    String   @id @default(uuid())
+  policy                String
+  harmonizedDescription String
+  requirementCount      Int
+  averageConfidence     Float
+  sourceRequirements    Json
+  createdAt             DateTime @default(now())
+  
+  @@map("harmonized_requirements")
+}
+
+model LLMOrganizedRequirement {
+  id                String   @id @default(uuid())
+  groupId           String   @unique
+  category          String
+  groupDescription  String
+  requirements      Json
+  confidenceScore   Float
+  createdAt         DateTime @default(now())
+  
+  @@map("llm_organized_requirements")
+}
+
+model FinalComplianceRequirement {
+  id                    String   @id @default(uuid())
+  policy                String
+  actor                 String
+  requirement           String
+  triggerCondition      String
+  deadline              String?
+  penalty               String?
+  mappedControls        Json
+  confidenceScore       Float
+  sourceRequirementIds  String[]
+  createdAt             DateTime @default(now())
+  
+  @@map("final_compliance_requirements")
+}
+
+model GapAnalysis {
+  id                String   @id @default(uuid())
+  companyData       Json
+  requirementsData  Json
+  analysisResults   Json
+  findings          Json
+  tasks             Json
+  complianceScore   Float
+  createdAt         DateTime @default(now())
+  
+  findings_relation GapFinding[]
+  tasks_relation    GapTask[]
+  
+  @@map("gap_analyses")
+}
+
+model GapFinding {
+  id                String   @id @default(uuid())
+  analysisId        String
+  category          String
+  severity          String
+  title             String
+  description       String
+  requirementId     String?
+  currentState      Json
+  expectedState     Json
+  recommendations   Json
+  priority          Int
+  estimatedEffort   String
+  responsibleParty  String
+  deadline          String?
+  businessImpact    String
+  status            String   @default("Open")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  
+  analysis          GapAnalysis @relation(fields: [analysisId], references: [id])
+  
+  @@map("gap_findings")
+}
+
+model GapTask {
+  id                String   @id @default(uuid())
+  analysisId        String
+  title             String
+  description       String
+  category          String
+  priority          String
+  status            String   @default("Pending")
+  assignedTo        String
+  dueDate           String?
+  dependencies      Json
+  effortEstimate    String
+  businessValue     String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  
+  analysis          GapAnalysis @relation(fields: [analysisId], references: [id])
+  
+  @@map("gap_tasks")
+}

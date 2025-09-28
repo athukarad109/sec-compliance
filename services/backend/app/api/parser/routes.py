@@ -9,16 +9,21 @@ from .models import (
     RuleExtractionResponse, 
     RuleSearchRequest,
     LegalDocument,
-    ComplianceRule
+    ComplianceRule,
+    EnhancedComplianceRule
 )
 from .document_extractor import DocumentExtractor
 from .parser_engine import LegalParserEngine
+from .legal_bert_engine import LegalBERTEngine
+from .optimized_legal_bert_engine import OptimizedLegalBERTEngine
 
 router = APIRouter()
 
 # Initialize components
 document_extractor = DocumentExtractor()
 parser_engine = LegalParserEngine()
+legal_bert_engine = LegalBERTEngine()
+optimized_legal_bert_engine = OptimizedLegalBERTEngine()
 
 # In-memory storage for demo purposes
 # In production, this would be replaced with a database
@@ -105,6 +110,101 @@ async def extract_rules(document_id: str):
         raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error extracting rules: {str(e)}")
+
+
+@router.post("/extract-rules-bert/{document_id}", response_model=RuleExtractionResponse)
+async def extract_rules_with_bert(document_id: str):
+    """Extract compliance rules using LegalBERT enhancement."""
+    try:
+        # Get document
+        if document_id not in documents_storage:
+            raise HTTPException(status_code=404, detail="Document not found")
+        
+        document = documents_storage[document_id]
+        
+        # Extract rules using Phase 1 (pattern matching)
+        start_time = time.time()
+        pattern_rules = parser_engine.extract_rules(document)
+        
+        # Enhance rules with LegalBERT
+        enhanced_rules = []
+        for rule in pattern_rules:
+            enhanced_rule = legal_bert_engine.enhance_rule(rule, document.content)
+            enhanced_rules.append(enhanced_rule)
+        
+        processing_time = time.time() - start_time
+        
+        # Store enhanced rules
+        for rule in enhanced_rules:
+            rules_storage[rule.rule_id] = rule
+        
+        # Mark document as processed
+        document.processed = True
+        
+        return RuleExtractionResponse(
+            document_id=document_id,
+            rules=enhanced_rules,
+            total_rules=len(enhanced_rules),
+            processing_time=processing_time,
+            message=f"Successfully extracted {len(enhanced_rules)} rules with LegalBERT enhancement"
+        )
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error extracting rules with LegalBERT: {str(e)}")
+
+
+@router.post("/extract-rules-bert-gpu/{document_id}", response_model=RuleExtractionResponse)
+async def extract_rules_with_bert_gpu(document_id: str):
+    """Extract compliance rules using GPU-accelerated LegalBERT."""
+    try:
+        # Get document
+        if document_id not in documents_storage:
+            raise HTTPException(status_code=404, detail="Document not found")
+        
+        document = documents_storage[document_id]
+        
+        print(f"\n🚀 Starting GPU-accelerated rule extraction for document: {document_id}")
+        print(f"   → Document: {document.filename}")
+        print(f"   → Size: {len(document.content)} characters")
+        
+        # Extract rules using Phase 1 (pattern matching)
+        start_time = time.time()
+        print("📋 Phase 1: Extracting rules with pattern matching...")
+        pattern_rules = parser_engine.extract_rules(document)
+        print(f"   → Found {len(pattern_rules)} rules")
+        
+        # Enhance rules with GPU-accelerated LegalBERT
+        print("🤖 Phase 2: Enhancing rules with GPU-accelerated LegalBERT...")
+        enhanced_rules = []
+        for i, rule in enumerate(pattern_rules, 1):
+            print(f"   → Enhancing rule {i}/{len(pattern_rules)}: {rule.title[:50]}...")
+            enhanced_rule = optimized_legal_bert_engine.enhance_rule(rule, document.content)
+            enhanced_rules.append(enhanced_rule)
+        
+        processing_time = time.time() - start_time
+        print(f"✅ GPU-accelerated processing complete in {processing_time:.2f} seconds!")
+        
+        # Store enhanced rules
+        for rule in enhanced_rules:
+            rules_storage[rule.rule_id] = rule
+        
+        # Mark document as processed
+        document.processed = True
+        
+        return RuleExtractionResponse(
+            document_id=document_id,
+            rules=enhanced_rules,
+            total_rules=len(enhanced_rules),
+            processing_time=processing_time,
+            message=f"Successfully extracted {len(enhanced_rules)} rules with GPU-accelerated LegalBERT"
+        )
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error extracting rules with GPU LegalBERT: {str(e)}")
 
 
 @router.get("/rules/{rule_id}")
@@ -212,6 +312,29 @@ async def delete_document(document_id: str):
     del documents_storage[document_id]
     
     return {"message": f"Document {document_id} and {len(rules_to_remove)} associated rules deleted"}
+
+
+@router.get("/legal-entities/{document_id}")
+async def get_legal_entities(document_id: str):
+    """Get legal entities extracted from a document."""
+    if document_id not in documents_storage:
+        raise HTTPException(status_code=404, detail="Document not found")
+    
+    document = documents_storage[document_id]
+    entities = legal_bert_engine.extract_entities_from_document(document.content)
+    
+    return {
+        "document_id": document_id,
+        "entities": entities,
+        "total_entities": len(entities),
+        "entity_types": list(set(entity.label for entity in entities))
+    }
+
+
+@router.get("/performance-info")
+async def get_performance_info():
+    """Get GPU performance information."""
+    return optimized_legal_bert_engine.get_performance_info()
 
 
 @router.get("/stats")

@@ -1,0 +1,759 @@
+{
+  "meta": {
+    "generated_at": "2025-09-28T04:09:33.980613Z",
+    "synthetic": true,
+    "purpose": "POC/demo only. Not for investment, audit, regulatory filing, or impersonation.",
+    "schema_version": "1.0.0"
+  },
+  "company": {
+    "name": "Orion Retail & Cloud, Inc.",
+    "short_name": "Orion",
+    "ticker": "ORCC",
+    "cik": "0000000000",
+    "exchange": "NASDAQ",
+    "jurisdiction": "Delaware, USA",
+    "headquarters": {
+      "street": "1200 Innovation Way",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "98101",
+      "country": "USA"
+    },
+    "fiscal_year_end": "2024-12-31",
+    "website": "https://ir.orion.example.com"
+  },
+  "cover": {
+    "well_known_seasoned_issuer": true,
+    "large_accelerated_filer": true,
+    "accelerated_filer": false,
+    "non_accelerated_filer": false,
+    "smaller_reporting_company": false,
+    "emerging_growth_company": false,
+    "shell_company": false,
+    "aggregate_market_value_non_affiliates_usd": 1780000000000,
+    "shares_outstanding_basic": 10500000000,
+    "as_of_date": "2024-06-30",
+    "contact": {
+      "phone": "+1-206-555-0100",
+      "investor_relations_email": "ir@orion.example.com"
+    }
+  },
+  "table_of_contents": {
+    "Part I": [
+      "Item 1. Business",
+      "Item 1A. Risk Factors",
+      "Item 1B. Unresolved Staff Comments",
+      "Item 1C. Cybersecurity",
+      "Item 2. Properties",
+      "Item 3. Legal Proceedings",
+      "Item 4. Mine Safety Disclosures"
+    ],
+    "Part II": [
+      "Item 5. Market for Registrant\u2019s Common Equity, Related Stockholder Matters and Issuer Purchases of Equity Securities",
+      "Item 6. [Reserved]",
+      "Item 7. Management\u2019s Discussion and Analysis of Financial Condition and Results of Operations",
+      "Item 7A. Quantitative and Qualitative Disclosures About Market Risk",
+      "Item 8. Financial Statements and Supplementary Data",
+      "Item 9. Changes in and Disagreements With Accountants on Accounting and Financial Disclosure",
+      "Item 9A. Controls and Procedures",
+      "Item 9B. Other Information",
+      "Item 9C. Disclosure Regarding Foreign Jurisdictions that Prevent Inspections"
+    ],
+    "Part III": [
+      "Item 10. Directors, Executive Officers and Corporate Governance",
+      "Item 11. Executive Compensation",
+      "Item 12. Security Ownership of Certain Beneficial Owners and Management and Related Stockholder Matters",
+      "Item 13. Certain Relationships and Related Transactions, and Director Independence",
+      "Item 14. Principal Accountant Fees and Services"
+    ],
+    "Part IV": [
+      "Item 15. Exhibits, Financial Statement Schedules",
+      "Item 16. Form 10\u2011K Summary"
+    ]
+  },
+  "part1": {
+    "item1_business": {
+      "overview": "Orion is a global omni\u2011channel commerce and logistics platform with a hyperscale cloud services segment. We offer a marketplace for third\u2011party sellers, direct online and physical retail, advertising products, subscriptions, and enterprise cloud services under Orion Web Services (OWS).",
+      "products_and_services": [
+        "Online Stores",
+        "Third\u2011Party Seller Services",
+        "Orion Web Services (OWS)",
+        "Advertising Services",
+        "Subscription Services"
+      ],
+      "distribution_and_logistics": "Owned and leased fulfillment, sortation, and delivery stations with last\u2011mile partners. Integrated inventory and routing systems optimize speed and cost.",
+      "seasonality": "Commerce demand peaks in Q4 holiday season and during promotional events; OWS demand is comparatively steady season\u2011to\u2011season."
+    },
+    "item1a_risk_factors": [
+      "Macroeconomic conditions and higher interest rates could reduce consumer and enterprise spend.",
+      "Foreign exchange volatility impacts consolidated results.",
+      "Intense competition across retail, advertising, and cloud services.",
+      "Regulatory and tax scrutiny across multiple jurisdictions could increase costs and restrict operations.",
+      "Cybersecurity incidents and data protection obligations pose operational and reputational risk.",
+      "Capital intensity of technology infrastructure, including AI/ML clusters, may pressure cash flows.",
+      "Supply\u2011chain disruptions and transportation cost volatility.",
+      "Talent attraction and retention in critical technical roles."
+    ],
+    "item1b_unresolved_staff_comments": "None.",
+    "item1c_cybersecurity": {
+      "program": "Aligned to NIST CSF 2.0; 24x7 SOC; regular red/purple team exercises; third\u2011party assessments; board\u2011level risk oversight.",
+      "material_incidents": {
+        "occurred": false
+      },
+      "incident_response": "Documented IR plan with external forensics; periodic tabletop exercises."
+    },
+    "item2_properties": {
+      "fulfillment_centers": 680,
+      "sortation_centers": 200,
+      "delivery_stations": 3200,
+      "data_center_regions": 35,
+      "corporate_offices": 50,
+      "leased_percentage": 0.72
+    },
+    "item3_legal_proceedings": {
+      "summary": "Ongoing antitrust, tax, and IP matters typical for the industry; none individually material."
+    },
+    "item4_mine_safety_disclosures": "Not applicable."
+  },
+  "part2": {
+    "item5_stockholder_information": {
+      "common_stock_price_range": {
+        "2024": {
+          "high": 189.5,
+          "low": 102.3,
+          "average": 146.7
+        },
+        "2023": {
+          "high": 168.2,
+          "low": 81.5,
+          "average": 124.8
+        }
+      },
+      "comparative_stock_performance_graph_stub": "5\u2011year cumulative total return: ORCC vs S&P 500 and Retail/Cloud Peers (index=100 baseline).",
+      "dividend_policy": {
+        "pays_dividends": false,
+        "statement": "Earnings retained for growth; no dividends declared 2022\u20112024."
+      },
+      "repurchases": {
+        "authorization": {
+          "date": "2022-11-15",
+          "authorized_usd": 10000000000,
+          "remaining_usd": 10000000000
+        },
+        "q4_2024_monthly_activity": [
+          {
+            "month": "2024-10",
+            "shares_purchased": 0,
+            "avg_price_paid": 0.0,
+            "remaining_authorization_usd": 10000000000
+          },
+          {
+            "month": "2024-11",
+            "shares_purchased": 0,
+            "avg_price_paid": 0.0,
+            "remaining_authorization_usd": 10000000000
+          },
+          {
+            "month": "2024-12",
+            "shares_purchased": 0,
+            "avg_price_paid": 0.0,
+            "remaining_authorization_usd": 10000000000
+          }
+        ],
+        "note": "No repurchases during 2023\u20132024."
+      },
+      "holders_of_record": 14800,
+      "institutional_ownership_pct": 68.4
+    },
+    "item6_reserved": "[Reserved]",
+    "item7_mdna": {
+      "overview": "Revenue growth driven by commerce and OWS; operating margin expansion from mix shift to OWS and fulfillment efficiencies.",
+      "yoy_highlights": {
+        "revenue_growth_2024_vs_2023_pct": 11.0,
+        "revenue_growth_2023_vs_2022_pct": 11.9
+      },
+      "non_gaap": {
+        "free_cash_flow_usd": 38400000000,
+        "constant_currency_revenue_growth_pct": 10.9,
+        "adjusted_operating_income_usd": 69200000000
+      }
+    },
+    "item7a_market_risk": {
+      "interest_rate_sensitivity_bps100_usd": -3300000000,
+      "fx_sensitivity_10pct_usd": -4800000000,
+      "equity_price_exposure_fair_value_usd": 2100000000
+    },
+    "item8_financial_statements": {
+      "income_statements": [
+        {
+          "year": 2024,
+          "net_sales": 637800000000,
+          "cost_of_sales": 325300000000,
+          "gross_profit": 312500000000,
+          "fulfillment": 98300000000,
+          "technology_and_content": 88100000000,
+          "sales_and_marketing": 43500000000,
+          "general_and_administrative": 11200000000,
+          "other_operating_expense_net": 700000000,
+          "operating_income": 67900000000,
+          "non_operating_net": 300000000,
+          "income_before_tax": 68200000000,
+          "income_tax_provision": 9900000000,
+          "net_income": 58100000000,
+          "eps_basic": 5.49,
+          "eps_diluted": 5.4,
+          "weighted_avg_shares_basic": 10570000000,
+          "weighted_avg_shares_diluted": 10760000000
+        },
+        {
+          "year": 2023,
+          "net_sales": 574800000000,
+          "cost_of_sales": 299900000000,
+          "gross_profit": 274900000000,
+          "fulfillment": 95000000000,
+          "technology_and_content": 83700000000,
+          "sales_and_marketing": 40100000000,
+          "general_and_administrative": 10600000000,
+          "other_operating_expense_net": 900000000,
+          "operating_income": 44600000000,
+          "non_operating_net": -1000000000,
+          "income_before_tax": 43600000000,
+          "income_tax_provision": 6900000000,
+          "net_income": 36700000000,
+          "eps_basic": 3.51,
+          "eps_diluted": 3.42,
+          "weighted_avg_shares_basic": 10690000000,
+          "weighted_avg_shares_diluted": 10720000000
+        },
+        {
+          "year": 2022,
+          "net_sales": 513700000000,
+          "cost_of_sales": 283600000000,
+          "gross_profit": 230100000000,
+          "fulfillment": 92900000000,
+          "technology_and_content": 79900000000,
+          "sales_and_marketing": 37800000000,
+          "general_and_administrative": 10300000000,
+          "other_operating_expense_net": 1800000000,
+          "operating_income": 7200000000,
+          "non_operating_net": -3500000000,
+          "income_before_tax": 3700000000,
+          "income_tax_provision": 1200000000,
+          "net_income": 2500000000,
+          "eps_basic": 0.24,
+          "eps_diluted": 0.23,
+          "weighted_avg_shares_basic": 10610000000,
+          "weighted_avg_shares_diluted": 10650000000
+        }
+      ],
+      "balance_sheets": [
+        {
+          "as_of": "2024-12-31",
+          "cash_and_equivalents": 64300000000,
+          "marketable_securities": 36900000000,
+          "accounts_receivable": 48700000000,
+          "inventory": 39200000000,
+          "prepaid_expenses": 5800000000,
+          "total_current_assets": 227600000000,
+          "property_and_equipment_net": 252000000000,
+          "operating_lease_assets": 70800000000,
+          "goodwill": 18400000000,
+          "other_noncurrent_assets": 56600000000,
+          "total_assets": 625400000000,
+          "accounts_payable": 84900000000,
+          "accrued_expenses": 62100000000,
+          "unearned_revenue_current": 18600000000,
+          "current_portion_long_term_debt": 2800000000,
+          "total_current_liabilities": 168400000000,
+          "long_term_debt": 51900000000,
+          "operating_lease_liabilities_noncurrent": 78100000000,
+          "other_noncurrent_liabilities": 55900000000,
+          "total_liabilities": 354300000000,
+          "common_stock_and_apic": 65000000000,
+          "retained_earnings": 194700000000,
+          "accumulated_other_comprehensive_loss": -11400000000,
+          "total_stockholders_equity": 271100000000
+        },
+        {
+          "as_of": "2023-12-31",
+          "cash_and_equivalents": 54700000000,
+          "marketable_securities": 34100000000,
+          "accounts_receivable": 44900000000,
+          "inventory": 36800000000,
+          "prepaid_expenses": 5200000000,
+          "total_current_assets": 209600000000,
+          "property_and_equipment_net": 246700000000,
+          "operating_lease_assets": 72300000000,
+          "goodwill": 18200000000,
+          "other_noncurrent_assets": 52800000000,
+          "total_assets": 599600000000,
+          "total_current_liabilities": 161800000000,
+          "long_term_debt": 56300000000,
+          "operating_lease_liabilities_noncurrent": 79300000000,
+          "other_noncurrent_liabilities": 52600000000,
+          "total_liabilities": 350000000000,
+          "total_stockholders_equity": 249600000000
+        }
+      ],
+      "cash_flows": [
+        {
+          "year": 2024,
+          "net_cash_from_operations": 114900000000,
+          "purchases_property_and_equipment": -78000000000,
+          "acquisitions_net": -2400000000,
+          "purchases_marketable_securities": -14900000000,
+          "net_cash_used_in_investing": -93400000000,
+          "debt_issuance_repayments_net": -4600000000,
+          "lease_principal_payments": -8300000000,
+          "net_cash_used_in_financing": -11900000000,
+          "effect_of_fx_on_cash": -200000000,
+          "net_change_in_cash": 9400000000,
+          "free_cash_flow": 38400000000
+        },
+        {
+          "year": 2023,
+          "net_cash_from_operations": 99100000000,
+          "purchases_property_and_equipment": -58000000000,
+          "acquisitions_net": -250000000,
+          "purchases_marketable_securities": -8500000000,
+          "net_cash_used_in_investing": -67300000000,
+          "net_cash_used_in_financing": -6800000000,
+          "free_cash_flow": 41100000000
+        }
+      ],
+      "stockholders_equity_rollforward": [
+        {
+          "year": 2024,
+          "beginning_balance": 249600000000,
+          "net_income": 58100000000,
+          "other_comprehensive_loss": -2400000000,
+          "issuance_of_stock": 4200000000,
+          "repurchases": 0,
+          "stock_based_compensation": 6600000000,
+          "dividends": 0,
+          "ending_balance": 271100000000
+        },
+        {
+          "year": 2023,
+          "beginning_balance": 217600000000,
+          "net_income": 36700000000,
+          "other_comprehensive_income": -1200000000,
+          "issuance_of_stock": 3800000000,
+          "repurchases": 0,
+          "stock_based_compensation": 5700000000,
+          "dividends": 0,
+          "ending_balance": 249600000000
+        }
+      ],
+      "quarterly_financial_data": {
+        "2024": {
+          "Q1": {
+            "revenue": 148200000000,
+            "net_income": 12600000000,
+            "eps_diluted": 1.18
+          },
+          "Q2": {
+            "revenue": 154700000000,
+            "net_income": 13800000000,
+            "eps_diluted": 1.29
+          },
+          "Q3": {
+            "revenue": 160900000000,
+            "net_income": 14700000000,
+            "eps_diluted": 1.37
+          },
+          "Q4": {
+            "revenue": 174000000000,
+            "net_income": 17000000000,
+            "eps_diluted": 1.56
+          }
+        },
+        "2023": {
+          "Q1": {
+            "revenue": 139500000000,
+            "net_income": 9800000000,
+            "eps_diluted": 0.91
+          },
+          "Q2": {
+            "revenue": 143200000000,
+            "net_income": 8600000000,
+            "eps_diluted": 0.8
+          },
+          "Q3": {
+            "revenue": 146700000000,
+            "net_income": 9200000000,
+            "eps_diluted": 0.86
+          },
+          "Q4": {
+            "revenue": 145400000000,
+            "net_income": 9100000000,
+            "eps_diluted": 0.85
+          }
+        }
+      },
+      "geographic_net_sales": [
+        {
+          "year": 2024,
+          "United_States": 437900000000,
+          "Germany": 40800000000,
+          "United_Kingdom": 37700000000,
+          "Japan": 27300000000,
+          "Rest_of_world": 94100000000
+        },
+        {
+          "year": 2023,
+          "United_States": 401200000000,
+          "Germany": 38400000000,
+          "United_Kingdom": 35100000000,
+          "Japan": 25900000000,
+          "Rest_of_world": 74200000000
+        }
+      ]
+    },
+    "item9_changes_in_and_disagreements_with_accountants": "None.",
+    "item9a_controls_and_procedures": {
+      "disclosure_controls_and_procedures": {
+        "management_conclusion": "Effective",
+        "as_of": "2024-12-31",
+        "basis": "Assessed under Rules 13a\u201115(e)/15d\u201115(e)."
+      },
+      "icfr": {
+        "framework": "COSO 2013",
+        "management_conclusion": "Effective",
+        "report_signed_by": {
+          "CEO": "Alex Rivera",
+          "CFO": "Mei Chen"
+        },
+        "report_date": "2025-02-20",
+        "auditor_attestation": {
+          "auditor": "Example LLP",
+          "pcaob_id": 1234,
+          "opinion": "Unqualified",
+          "report_date": "2025-02-20"
+        }
+      },
+      "changes_in_icfr": "No changes during Q4 2024 that materially affected ICFR."
+    },
+    "item9b_other_information": "None.",
+    "item9c_hfcaa": "Not applicable."
+  },
+  "part3": {
+    "item10_directors_executives_governance": {
+      "board_size": 12,
+      "independent_directors": 10,
+      "committees": [
+        "Audit",
+        "Compensation",
+        "Nominating & Governance",
+        "Risk"
+      ],
+      "code_of_ethics_url": "https://ir.orion.example.com/code-of-conduct"
+    },
+    "item11_executive_compensation": {
+      "summary_compensation_table": [
+        {
+          "name": "Alex Rivera",
+          "title": "Chair & CEO",
+          "year": 2024,
+          "salary": 1250000,
+          "bonus": 2000000,
+          "stock_awards": 14500000,
+          "option_awards": 0,
+          "non_equity_incentive": 3000000,
+          "other_comp": 250000,
+          "total": 21000000
+        },
+        {
+          "name": "Mei Chen",
+          "title": "CFO",
+          "year": 2024,
+          "salary": 900000,
+          "bonus": 1200000,
+          "stock_awards": 6800000,
+          "option_awards": 0,
+          "non_equity_incentive": 1400000,
+          "other_comp": 180000,
+          "total": 10480000
+        },
+        {
+          "name": "Jordan Patel",
+          "title": "Controller",
+          "year": 2024,
+          "salary": 650000,
+          "bonus": 700000,
+          "stock_awards": 2100000,
+          "option_awards": 0,
+          "non_equity_incentive": 600000,
+          "other_comp": 120000,
+          "total": 4170000
+        }
+      ],
+      "pay_ratio_disclosure_stub": "CEO to median employee pay ratio: 210:1 (illustrative)."
+    },
+    "item12_security_ownership": {
+      "five_percent_holders": [
+        {
+          "holder": "Alpha Index Funds",
+          "percent": 6.2
+        },
+        {
+          "holder": "Global Growth Partners",
+          "percent": 5.8
+        }
+      ],
+      "directors_and_officers_total_pct": 0.72
+    },
+    "item13_related_transactions_and_independence": {
+      "related_party_transactions": "None material.",
+      "director_independence": "Majority independent per exchange rules."
+    },
+    "item14_accountant_fees": {
+      "audit_fees": 26000000,
+      "audit_related_fees": 2400000,
+      "tax_fees": 3600000,
+      "all_other_fees": 300000
+    }
+  },
+  "part4": {
+    "item15_exhibits_and_fs_schedules": {
+      "financial_statement_schedules": [
+        "Schedule II \u2014 Valuation and Qualifying Accounts"
+      ],
+      "exhibits": [
+        {
+          "exhibit": "10.1",
+          "title": "Material Credit Agreement (summary)"
+        },
+        {
+          "exhibit": "21.1",
+          "title": "List of Subsidiaries"
+        },
+        {
+          "exhibit": "23.1",
+          "title": "Consent of Independent Registered Public Accounting Firm"
+        },
+        {
+          "exhibit": "31.1",
+          "title": "CEO Certification under Section 302"
+        },
+        {
+          "exhibit": "31.2",
+          "title": "CFO Certification under Section 302"
+        },
+        {
+          "exhibit": "32.1",
+          "title": "CEO/CFO Certification under Section 906"
+        },
+        {
+          "exhibit": "99.1",
+          "title": "Code of Business Conduct and Ethics"
+        },
+        {
+          "exhibit": "101",
+          "title": "Interactive Data File (XBRL) \u2014 instance, schema, labels, calculation, definition"
+        }
+      ]
+    },
+    "item16_10k_summary": {
+      "business": "Commerce + cloud model with marketplace and advertising flywheel.",
+      "financials": "FY2024 revenue $637.8B; operating income $67.9B; net income $58.1B.",
+      "liquidity": "Operating cash flow $114.9B; FCF $38.4B; long\u2011term debt $51.9B.",
+      "risks": "Macro, FX, competition, regulatory, cyber, capex intensity."
+    }
+  },
+  "segment_disclosures": {
+    "reportable_segments": [
+      {
+        "name": "North America Commerce",
+        "net_sales": 386600000000,
+        "operating_income": 24600000000,
+        "assets": 209900000000
+      },
+      {
+        "name": "International Commerce",
+        "net_sales": 143400000000,
+        "operating_income": 3800000000,
+        "assets": 69600000000
+      },
+      {
+        "name": "Orion Web Services (OWS)",
+        "net_sales": 107800000000,
+        "operating_income": 39500000000,
+        "assets": 157100000000
+      }
+    ],
+    "revenue_breakdown": {
+      "online_stores": 247100000000,
+      "physical_stores": 21900000000,
+      "third_party_seller_services": 156400000000,
+      "advertising_services": 56000000000,
+      "subscription_services": 44300000000,
+      "cloud_services": 107800000000,
+      "other": 5300000000
+    }
+  },
+  "notes_to_financials": {
+    "significant_accounting_policies": {
+      "revenue_recognition": "Recognize revenue upon transfer of control; marketplace fees on net basis where appropriate.",
+      "leases": "ASC 842 analog; operating and finance leases recognized on balance sheet.",
+      "cash_equivalents": "Investments with maturities of three months or less."
+    },
+    "acquisitions": [
+      {
+        "date": "2024-07-15",
+        "acquired": "DataStream AI, Inc.",
+        "purchase_price_usd": 1200000000,
+        "goodwill_assigned_usd": 900000000
+      },
+      {
+        "date": "2023-03-10",
+        "acquired": "RetailLogix Ltd.",
+        "purchase_price_usd": 2500000000,
+        "goodwill_assigned_usd": 1600000000
+      }
+    ],
+    "debt_and_credit_facilities": {
+      "long_term_debt_total": 51900000000,
+      "undrawn_credit_facilities": 10000000000,
+      "weighted_avg_interest_rate_pct": 3.8,
+      "maturities": [
+        {
+          "year": "2025",
+          "amount": 2800000000
+        },
+        {
+          "year": "2026",
+          "amount": 4700000000
+        },
+        {
+          "year": "2027",
+          "amount": 5000000000
+        },
+        {
+          "year": "2028",
+          "amount": 6000000000
+        },
+        {
+          "year": "2029",
+          "amount": 8500000000
+        },
+        {
+          "year": "2030",
+          "amount": 9400000000
+        },
+        {
+          "year": "2031_plus",
+          "amount": "remainder_as_contract_terms"
+        }
+      ]
+    },
+    "leases": {
+      "operating_lease_commitments_by_year": [
+        {
+          "year": "2025",
+          "amount": 12300000000
+        },
+        {
+          "year": "2026",
+          "amount": 11900000000
+        },
+        {
+          "year": "2027",
+          "amount": 10800000000
+        },
+        {
+          "year": "2028",
+          "amount": 9700000000
+        },
+        {
+          "year": "2029",
+          "amount": 8100000000
+        },
+        {
+          "year": "2030_plus",
+          "amount": 40500000000
+        }
+      ],
+      "weighted_avg_lease_term_years": 8.4,
+      "discount_rate_pct": 5.2
+    },
+    "stock_based_compensation": {
+      "expense_usd": 6600000000,
+      "outstanding_equity_instruments_shares": 650000000,
+      "method": "Straight\u2011line over service period."
+    },
+    "income_taxes": {
+      "effective_tax_rate_pct": 14.5,
+      "income_tax_payments_usd": 8900000000,
+      "deferred_tax_assets_usd": 4100000000,
+      "valuation_allowance_usd": 200000000
+    },
+    "contingencies": {
+      "legal_reserves_usd": 150000000,
+      "description": "Reserves for certain litigation matters; subject to change."
+    },
+    "related_party_transactions": {
+      "description": "Routine transactions with subsidiaries; none material."
+    }
+  },
+  "signatures": {
+    "signed_at": "2025-02-20",
+    "signatories": [
+      {
+        "name": "Alex Rivera",
+        "title": "Chair & Chief Executive Officer",
+        "signature": "Alex Rivera",
+        "date": "2025-02-20"
+      },
+      {
+        "name": "Mei Chen",
+        "title": "Chief Financial Officer",
+        "signature": "Mei Chen",
+        "date": "2025-02-20"
+      },
+      {
+        "name": "Jordan Patel",
+        "title": "Principal Accounting Officer (Controller)",
+        "signature": "Jordan Patel",
+        "date": "2025-02-20"
+      },
+      {
+        "name": "S. Gupta",
+        "title": "Director",
+        "signature": "S. Gupta",
+        "date": "2025-02-20"
+      }
+    ]
+  },
+  "xbrl": {
+    "units": {
+      "USD": "iso4217:USD",
+      "Shares": "shares"
+    },
+    "contexts": [
+      {
+        "id": "FY2024",
+        "start": "2024-01-01",
+        "end": "2024-12-31"
+      },
+      {
+        "id": "FY2023",
+        "start": "2023-01-01",
+        "end": "2023-12-31"
+      },
+      {
+        "id": "FY2022",
+        "start": "2022-01-01",
+        "end": "2022-12-31"
+      }
+    ],
+    "facts": {
+      "Revenues_FY2024": 637800000000,
+      "OperatingIncome_FY2024": 67900000000,
+      "NetIncome_FY2024": 58100000000,
+      "TotalAssets_2024": 625400000000,
+      "WeightedAverageSharesDiluted_2024": 10760000000
+    }
+  },
+  "disclaimer": "Synthetic content for demonstration only. Do not represent as actual SEC filing."
+}
